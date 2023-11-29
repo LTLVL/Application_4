@@ -30,6 +30,7 @@ import java.io.IOException;
  * @date 2023/11/29
  */
 public class Index {
+    int count = 100;
 
     /**
      * 用于认证授权ES
@@ -108,7 +109,7 @@ public class Index {
      */
     public void searchAll() throws IOException {
         SearchRequest request = new SearchRequest("paper");
-        request.source().query(QueryBuilders.matchAllQuery());
+        request.source().query(QueryBuilders.matchAllQuery()).size(count);
         handleResult(request);
     }
 
